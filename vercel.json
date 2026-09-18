@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/omnidim/:path*",
+      "destination": "https://backend.omnidim.io/:path*"
+    }
+  ]
+}

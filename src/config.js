@@ -1,29 +1,33 @@
 // VoiceWeatherGPT Configuration & Configurable Parameters
-// All main content, parameters, and OmniDimension API integration keys are centralized here.
+// All main content, parameters, and OmniDimension API keys are centralized here.
+// Supports Vercel / Vite Environment Variables (prefixed with VITE_) with fallback defaults.
 
 export const CONFIG = {
   APP_NAME: "VoiceWeatherGPT",
   COMPANY_NAME: "VISIONX",
-  PHONE_NUMBER: "+91 XXXXX XXXXX",
+  PHONE_NUMBER: import.meta.env.VITE_PHONE_NUMBER || "+91 XXXXX XXXXX",
   HERO_TITLE: "Your Weather. Just a Phone Call Away.",
   HERO_DESCRIPTION:
     "Talk naturally with our AI voice assistant and get real-time weather information using OpenWeather.",
   
   // OmniDimension AI Voice Calling Credentials
-  OMNIDIM_API_KEY: "eJuJf6EwmV3SXgRYRm3-XotcB2Uj0KYy92tLoXCuNqs",
-  OMNIDIM_AGENT_ID: 255478, // VoiceWeatherGPT Agent ID
+  OMNIDIM_API_KEY:
+    import.meta.env.VITE_OMNIDIM_API_KEY || "eJuJf6EwmV3SXgRYRm3-XotcB2Uj0KYy92tLoXCuNqs",
+  OMNIDIM_AGENT_ID: import.meta.env.VITE_OMNIDIM_AGENT_ID
+    ? Number(import.meta.env.VITE_OMNIDIM_AGENT_ID)
+    : 255478,
   
-  // Proxied local URL to prevent CORS errors in browser, fallback to direct URL
+  // Proxied URL (works both locally via vite.config.js and on Vercel via vercel.json)
   OMNIDIM_DISPATCH_URL: "/api/omnidim/api/v1/calls/dispatch",
   OMNIDIM_DIRECT_URL: "https://backend.omnidim.io/api/v1/calls/dispatch",
 
   // Simple Weather Information Card (Placeholder / Configurable Demo Data)
   WEATHER_DEMO: {
-    LOCATION: "Hyderabad",
-    TEMPERATURE: "29°C",
-    CONDITION: "Partly Cloudy",
-    HUMIDITY: "65%",
-    WIND_SPEED: "4.2 km/h",
+    LOCATION: import.meta.env.VITE_WEATHER_LOCATION || "Hyderabad",
+    TEMPERATURE: import.meta.env.VITE_WEATHER_TEMP || "29°C",
+    CONDITION: import.meta.env.VITE_WEATHER_CONDITION || "Partly Cloudy",
+    HUMIDITY: import.meta.env.VITE_WEATHER_HUMIDITY || "65%",
+    WIND_SPEED: import.meta.env.VITE_WEATHER_WIND || "4.2 km/h",
   },
 
   // Steps for How It Works
