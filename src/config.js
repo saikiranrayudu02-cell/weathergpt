@@ -1,5 +1,5 @@
 // VoiceWeatherGPT Configuration & Configurable Parameters
-// All main content, parameters, and OmniDimension API keys are centralized here.
+// All main content, parameters, and API keys are centralized here.
 // Supports Vercel / Vite Environment Variables (prefixed with VITE_) with fallback defaults.
 
 export const CONFIG = {
@@ -10,7 +10,7 @@ export const CONFIG = {
   HERO_DESCRIPTION:
     "Talk naturally with our AI voice assistant and get real-time weather information using OpenWeather.",
   
-  // OmniDimension AI Voice Calling Credentials
+  // AI Voice Calling Credentials
   OMNIDIM_API_KEY:
     import.meta.env.VITE_OMNIDIM_API_KEY || "eJuJf6EwmV3SXgRYRm3-XotcB2Uj0KYy92tLoXCuNqs",
   OMNIDIM_AGENT_ID: import.meta.env.VITE_OMNIDIM_AGENT_ID
@@ -41,7 +41,7 @@ export const CONFIG = {
     {
       stepNumber: "02",
       title: "Receive AI Call",
-      description: "OmniDimension AI voice assistant calls your phone instantly.",
+      description: "Our AI voice assistant calls your phone instantly.",
       icon: "MessageSquare",
     },
     {

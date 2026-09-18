@@ -13,7 +13,7 @@ export const CallAssistantCard = () => {
             <span>Talk to {CONFIG.APP_NAME}</span>
           </h2>
           <p className="call-card-desc">
-            Enter your mobile number below to receive an instant call from our OmniDimension AI voice assistant:
+            Enter your mobile number below to receive an instant call from our AI voice assistant:
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export const CallAssistantCard = () => {
 
         <div className="call-card-footer">
           <span className="pulse-dot"></span>
-          <span>OmniDimension AI Agent #{CONFIG.OMNIDIM_AGENT_ID} • Ready to Call</span>
+          <span>AI Voice Assistant • Ready for Weather Queries</span>
         </div>
       </div>
     </section>

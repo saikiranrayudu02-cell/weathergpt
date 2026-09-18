@@ -1,7 +1,7 @@
 import { CONFIG } from "../config";
 
 /**
- * Dispatch an outbound AI voice call using OmniDimension API
+ * Dispatch an outbound AI voice call
  * @param {string} rawPhoneNumber - Target phone number
  * @returns {Promise<{success: boolean, message: string, data?: any}>}
  */
@@ -59,7 +59,6 @@ export async function triggerVoiceCall(rawPhoneNumber) {
           data.message ||
           `Server returned status ${response.status}`;
         
-        // If it's a valid API response error from OmniDimension (e.g. invalid phone format), don't retry fallback
         if (data.error || data.error_description) {
           return {
             success: false,
@@ -76,6 +75,6 @@ export async function triggerVoiceCall(rawPhoneNumber) {
 
   return {
     success: false,
-    message: `Unable to connect to OmniDimension API (${lastErrorMessage}). Please verify your network connection or dev server.`,
+    message: `Unable to initiate voice call. Please check your network connection or try again.`,
   };
 }
